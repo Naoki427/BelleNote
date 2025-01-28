@@ -1,6 +1,9 @@
-
+"use client";
 import styles from './InputTable.module.css'
+// import { useState, useEffect} from 'react';
+
 const InputTable = () => {
+
     return (
             <tbody>
                 <tr className={styles.tableContainer}>

@@ -1,8 +1,11 @@
-import Image from "next/image";
+"use client";
 import styles from './home.module.css'
 import InputTable from "./components/InputTable";
+import useUniqueId from "@/lib/useId"
+import AddButton from './components/AddButton';
 
 export default function Home() {
+  useUniqueId();
   return (
     <div className={styles.homeContainer}>
       <table cellSpacing="0" className={styles.tableFrame}>
@@ -16,8 +19,9 @@ export default function Home() {
             </tr>
         </thead>
         <InputTable />
-        <InputTable />
+        <InputTable/>
       </table>
+      <AddButton />
     </div>
   );
 }
