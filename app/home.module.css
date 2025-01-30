@@ -8,6 +8,11 @@
     gap: 10px;
 }
 
+.logoTitle {
+    width: 120px;
+    height: auto;
+}
+
 .tableColumn {
     font-size: 12px;
 }
