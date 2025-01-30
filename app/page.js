@@ -101,8 +101,35 @@ export default function Home() {
     }
   };
 
+  const handleSearch = debounce((e) => {
+    const {value} = e.target;
+    setSearch(value);
+  },1000);
+
+  const handleSort = (e) => {
+    const {value} = e.target;
+    setSort(value);
+  }
+
+  const handleOrder = (e) => {
+    const {value} = e.target;
+    setOrder(value);
+  }
+
   return (
       <div className={styles.homeContainer}>
+        <div>
+          <input onChange={(e) => handleSearch(e)}></input>
+          <select id="options" name="Sort" onChange={(e) => handleSort(e)}>
+            <option value='id'>作成順</option>
+            <option value='name'>名前順</option>
+            <option value='age'>馬齢順</option>
+          </select>
+          <select id="options" name="Order" onChange={(e) => handleOrder(e)}>
+            <option value='ASC'>昇順</option>
+            <option value='DESC'>降順</option>
+          </select>
+        </div>
       <table cellSpacing="0" className={styles.tableFrame}>
           <thead >
               <tr className={styles.tableColumn}>

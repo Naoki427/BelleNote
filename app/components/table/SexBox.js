@@ -14,7 +14,7 @@ const SexBox = ({ initialValue, onChange}) => {
       };
 
     return(
-        <select id="options" name="Sex" autoComplete='nope' className={styles.SexBox} value={sex} onChange={handleChange}>
+        <select id="options" name="Sex"  className={styles.SexBox} value={sex} onChange={handleChange}>
             <option value="牡馬">牡馬</option>
             <option value="牝馬">牝馬</option>
             <option value="セン馬">セン馬</option>

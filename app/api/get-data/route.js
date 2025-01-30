@@ -10,7 +10,7 @@ export async function GET(req) {
     const sort = searchParams.get('sort');
     const order = searchParams.get('order');
 
-    // console.log('Query parameters:', { id, search, sort, order });
+    console.log('Query parameters:', { id, search, sort, order });
 
     let query = 'SELECT id, name, sex, age, style, comment FROM memotable WHERE user_id = $1';
     const params = [id];
@@ -22,6 +22,9 @@ export async function GET(req) {
 
     if (sort) {
       query += ` ORDER BY ${sort}`;
+      if (sort === 'name') {
+        query += ' COLLATE "ja-x-icu"'
+      }
       if (order) {
         query += ` ${order}`;
       }

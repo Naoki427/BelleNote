@@ -14,7 +14,7 @@ const AgeBox = ({ initialValue, onChange}) => {
       };
 
     return(
-        <select id="options" name="Age" autoComplete='nope' className={styles.AgeBox} value={age} onChange={handleChange}>
+        <select id="options" name="Age"  className={styles.AgeBox} value={age} onChange={handleChange}>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
