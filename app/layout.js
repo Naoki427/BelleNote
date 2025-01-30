@@ -26,7 +26,8 @@ export default function RootLayout({ children }) {
       >
         <header>
           <div className={styles.headerBar}>
-            <Image src="/logo.PNG" alt="logo" width={35} height={35 }></Image>   
+            <Image src="/logo.PNG" alt="logo" width={35} height={35}></Image>
+            <Image src="/Bellenote.PNG" alt="logo" width={120} height={30}></Image>
           </div>
         </header>
         {children}

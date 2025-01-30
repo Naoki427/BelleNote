@@ -5,6 +5,7 @@
     background-color: #121212;
     padding: 10px 20px;
     align-items: center;
+    gap: 10px;
 }
 
 .tableColumn {
@@ -19,6 +20,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    gap: 10px;
 }
 
 .inputTable {
@@ -31,4 +36,36 @@
 
 .tdTop {
     vertical-align: top;
+}
+
+.searchContainer {
+    display: flex;
+}
+
+.searchBox {
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.sortContainer {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    gap: 5px;
+}
+
+.sortButton {
+    height: 24px;
+    border: 1.5px solid #535353;
+    background-color: #d9d9d9;
+    border-radius: 12px;
+    color: #212121;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sortButton:hover {
+    background-color: #535353;
+    color: #d9d9d9;
 }

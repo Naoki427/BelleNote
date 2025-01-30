@@ -26,6 +26,7 @@ export default function Home() {
         const response = await fetch(`/api/get-data?id=${userId}&search=${search}&sort=${sort}&order=${order}`);
         const fetchedData = await response.json();
         setData(fetchedData);
+        console.log('fetchedata',fetchedData);
       } else {
           console.log('No userId found in localStorage');
       }
@@ -53,52 +54,52 @@ export default function Home() {
   },500);
   
   const handleAddButtonClick = async () => {
-    setAdd(prev => !prev);
-
     const userId = localStorage.getItem('userId');
     if (!userId) {
-        console.error('No userId found in localStorage');
-        return;
+      console.error('No userId found in localStorage');
+      return;
     }
-
+    
     try {
-        const response = await fetch('/api/new-field', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ userId }),
-        });
-
-        if (response.ok) {
-            console.log('Data inserted successfully');
-        } else {
-            console.error('Failed to insert data');
-        }
+      const response = await fetch('/api/new-field', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId }),
+      });
+      
+      if (response.ok) {
+        console.log('Data inserted successfully');
+      } else {
+        console.error('Failed to insert data');
+      }
     } catch (error) {
         console.error('Error:', error);
     }
+    setAdd(prev => !prev);
+    setSearch('');
   };
 
   const handleDeleteButtonClick = async (id) => {
-    setDel(prev => !prev);
     try {
-        const response = await fetch('/api/delete-data', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id }),
-        });
-
-        if (response.ok) {
-            console.log('Data deleted successfully');
-        } else {
-            console.error('Failed to delete data');
-        }
+      const response = await fetch('/api/delete-data', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id }),
+      });
+      
+      if (response.ok) {
+        console.log('Data deleted successfully');
+      } else {
+        console.error('Failed to delete data');
+      }
     } catch (error) {
-        console.error('Error:', error);
+      console.error('Error:', error);
     }
+    setDel(prev => !prev);
   };
 
   const handleSearch = debounce((e) => {
@@ -118,27 +119,29 @@ export default function Home() {
 
   return (
       <div className={styles.homeContainer}>
-        <div>
-          <input onChange={(e) => handleSearch(e)}></input>
-          <select id="options" name="Sort" onChange={(e) => handleSort(e)}>
+        <div className={styles.searchContainer}>
+          <input placeholder="検索..." className={styles.searchBox} onChange={(e) => handleSearch(e)}></input>
+        </div>
+        <div className={styles.sortContainer}>
+          <select id="options" name="Sort" onChange={(e) => handleSort(e)} className={styles.sortButton}>
             <option value='id'>作成順</option>
             <option value='name'>名前順</option>
             <option value='age'>馬齢順</option>
           </select>
-          <select id="options" name="Order" onChange={(e) => handleOrder(e)}>
+          <select id="options" name="Order" onChange={(e) => handleOrder(e)} className={styles.sortButton}>
             <option value='ASC'>昇順</option>
             <option value='DESC'>降順</option>
           </select>
         </div>
-      <table cellSpacing="0" className={styles.tableFrame}>
+        <table cellSpacing="0" className={styles.tableFrame}>
           <thead >
-              <tr className={styles.tableColumn}>
+              {data.length != 0 && <tr className={styles.tableColumn}>
                   <th>馬名</th>
                   <th>性別</th>
                   <th>馬齢</th>
                   <th>脚質</th>
                   <th>コメント</th>
-              </tr>
+              </tr>}
           </thead>
           <tbody>
               {data && Array.isArray(data) && data.map(item => (

@@ -1,8 +1,10 @@
+import styels from './tools.module.css'
+
 const AddButton = ({onButtonClick}) => {
 
   return (
     <div>
-      <button onClick={onButtonClick}>追加</button>
+      <button onClick={onButtonClick} className={styels.addButton}>＋</button>
     </div>
   );
 };

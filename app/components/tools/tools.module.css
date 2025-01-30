@@ -1,0 +1,29 @@
+.deleteButton {
+    height: 18px;
+    border: 1px solid #B54D66;
+    background-color: #F9EBEF;
+    border-radius: 4px;
+    color: #B54D66;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.deleteButton:hover {
+    background-color: #E1A6B4;
+}
+
+.addButton {
+    height: 28px;
+    background-color: #B3B3B3;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.addButton:hover {
+    background-color: #535353;
+}
