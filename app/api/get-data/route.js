@@ -10,7 +10,7 @@ export async function GET(req) {
     const sort = searchParams.get('sort');
     const order = searchParams.get('order');
 
-    console.log('Query parameters:', { id, search, sort, order });
+    // console.log('Query parameters:', { id, search, sort, order });
 
     let query = 'SELECT id, name, sex, age, style, comment FROM memotable WHERE user_id = $1';
     const params = [id];
@@ -26,6 +26,8 @@ export async function GET(req) {
         query += ` ${order}`;
       }
     }
+
+  query += ' LIMIT 18'
 
     const result = await pool.query(query, params);
     return NextResponse.json(result.rows, { status: 200 });

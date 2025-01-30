@@ -20,3 +20,15 @@
     flex-direction: column;
     align-items: center;
 }
+
+.inputTable {
+    width: 100%;
+}
+
+.tableContainer {
+    height: auto;
+}
+
+.tdTop {
+    vertical-align: top;
+}
