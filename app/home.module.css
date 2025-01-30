@@ -9,8 +9,9 @@
 }
 
 .logoTitle {
-    width: 120px;
-    height: auto;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 28px;
 }
 
 .tableColumn {
