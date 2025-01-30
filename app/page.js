@@ -135,7 +135,7 @@ export default function Home() {
         </div>
         <table cellSpacing="0" className={styles.tableFrame}>
           <thead >
-              {data.length != 0 && <tr className={styles.tableColumn}>
+              {data && data.length != 0 && Array.isArray(data) && <tr className={styles.tableColumn}>
                   <th>馬名</th>
                   <th>性別</th>
                   <th>馬齢</th>
